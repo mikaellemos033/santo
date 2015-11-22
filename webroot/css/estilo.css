@@ -1,0 +1,184 @@
+main.container {
+    background: #ffffff;
+    margin-top: 30px;
+    border-radius: 2px;
+    padding: 15px;
+    border: 1px solid #dddddd;
+}
+
+.etapas{
+    text-align: center;
+    position: relative;
+}
+
+.etapas div span{
+    width: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    background: #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 10;
+    display: block;
+    margin: 5px auto;
+}
+
+.etapas div{
+    display: inline-block;
+    padding: 1px;
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+    border: 3px solid #dddddd;
+    margin: 0 30px;
+}
+
+.etapas div.active{
+    border-color: #4BB4FF;
+    width: 73px;
+    height: 73px;
+}
+
+.etapas div.active span{
+    background: #4BB4FF;
+    margin: 10px auto;
+    color: #ffffff;
+}
+
+
+.lead{
+    font-size: 17px;
+}
+.lead-2{
+    font-size: 24px;
+}
+
+.lead, .lead-2{
+    color: #424242;
+}
+
+.icons-uploads{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.types-download{
+    margin-top: 40px;
+}
+
+.icons-uploads span.fa{
+    font-size: 70px;
+    line-height: 200px;
+}
+
+.icons-uploads a{
+    color: #333333;
+}
+
+hr{
+    border: 1px solid #dddddd;
+    border-bottom: none;
+}
+
+.uploads form{
+    margin-top: 40px;
+}
+
+.blockquote_upload{
+    margin-top: 100px !important;
+    padding: 30px 15px !important;
+}
+
+.modal-images{
+    width: 70%;
+}
+
+.header-modal{
+    border-bottom: 1px solid #dddddd;
+    padding-top: 3px;
+}
+
+.header-modal .tabs{
+    width: 30%;
+    text-align: center;
+    margin: 0;
+    line-height: 45px;
+    font-size: 17px;
+    background: #eeeeee;
+    display: inline-block;
+    border-radius: 2px 2px 0 0;
+}
+
+.tabs.tab_img.active{
+    background: none;
+    border: 1px solid #dddddd;
+    border-bottom: none;
+}
+
+.tabs_image{
+    display: none;
+}
+
+.tabs_image.active{
+    display: block;
+}
+
+.file-modal{
+    width: 200px;
+    background: #eeeeee;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.file-modal input{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 50px;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-modal label{
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.thumb_images{
+    height: 130px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    width: 24%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 3px;
+    position: relative;
+}
+
+.thumb_images.active{
+    border: 3px solid #0059bc;
+}
+
+.thumb_images img{
+    cursor: pointer;
+}
+
+.thumb_images input[type=checkbox], .thumb_images input[type=radio]{
+    position: absolute;
+    left: auto;
+    visibility: visible;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}

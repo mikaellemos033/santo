@@ -1,0 +1,17 @@
+{
+    "name": "gondor/site",
+    "description": "Site Wolpac com 3 idiomas",
+    "authors": [
+        {
+            "name": "mikaellemos033",
+            "email": "mikaellemos033@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4" : {
+            "App\\" : "lib",
+            "Http\\" : "app"
+        }
+    },
+    "require": {}
+}
