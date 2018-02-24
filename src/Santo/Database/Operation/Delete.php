@@ -2,7 +2,7 @@
 
 namespace Sect\Database\Operation;
 
-class Delete extends Falcon
+class Delete extends ORM
 {
 	private $query;
 

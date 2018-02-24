@@ -8,8 +8,7 @@ use Operation\Select;
 use Operation\Update;
 use Operation\Delete;
 
-
-class DB implements Single
+class DB
 {
 	private static $instance = null;
 

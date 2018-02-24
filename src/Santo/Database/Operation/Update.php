@@ -2,7 +2,7 @@
 
 namespace Sect\Database\Operation;
 
-class Update extends Falcon
+class Update extends ORM
 {
 	private $query;
 	private $binds = [];

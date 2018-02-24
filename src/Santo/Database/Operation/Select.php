@@ -2,7 +2,7 @@
 
 namespace Sect\Database\Operation;
 
-class Select extends Falcon
+class Select extends ORM
 {
 	public function run(string $table, array $fields = [])
 	{

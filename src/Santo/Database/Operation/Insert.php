@@ -2,7 +2,7 @@
 
 namespace Sect\Database\Operation;
 
-class Insert extends Falcon
+class Insert extends ORM
 {
 	public function run(string $table, array $params)
 	{

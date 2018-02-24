@@ -4,7 +4,7 @@ namespace Sect\Database\Operation;
 
 use PDO;
 
-abstract class Falcon
+abstract class ORM
 {
 	protected $pdo;
 	protected $query;
