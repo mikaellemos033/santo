@@ -1,6 +1,8 @@
 {
     "name": "mikaellemos/santo",
-    "description": "Site Wolpac com 3 idiomas",
+    "description": "Simples projeto de estudos",
+    "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "mikaellemos033",
