@@ -2,7 +2,7 @@
 
 namespace Sect\Authenticate;
 
-use RenderResponse\AuthResponse;
+use Sect\FormatResponse\Auth;
 
 abstract class AuthBase
 {
@@ -29,6 +29,6 @@ abstract class AuthBase
 
 	protected function response($success, $message, $data = null)
 	{
-		return new AuthResponse($success, $message, $this->getSession(), $data);		
+		return new Auth($success, $message, $this->getSession(), $data);		
 	}
 }
