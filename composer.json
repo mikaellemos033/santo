@@ -1,5 +1,5 @@
 {
-    "name": "gondor/site",
+    "name": "santo/sect",
     "description": "Site Wolpac com 3 idiomas",
     "authors": [
         {
@@ -12,9 +12,7 @@
             "Sect\\" : "src/Santo"            
         }
     },
-    "require": {
-        "robmorgan/phinx": "^0.8.0"
-    },
+    "require": {},
     "require-dev": {
         "phpunit/phpunit": "3.7.24"
     }
