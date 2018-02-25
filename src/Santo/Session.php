@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Sect;
 
@@ -9,7 +9,7 @@ class Session
 	public static function instance()
 	{
 		if (!self::$instance) self::$instance = new Session();
-		return self::$instance;		
+		return self::$instance;
 	}
 
 	public function get($name)

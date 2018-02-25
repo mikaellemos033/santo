@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Sect\Http\Routing;
 
@@ -21,8 +21,8 @@ class RoutePath
 	 * @return boolean|call
 	 */
 	public function call($url, $call)
-	{		
-		if (!$this->match($url)) return false;		
+	{
+		if (!$this->match($url)) return false;
 		return $this->boot->run($call, $this->matches);
 	}
 
@@ -33,8 +33,8 @@ class RoutePath
 	 * @return boolean
 	 */
 	private function match($url)
-	{		
-		$regex = sprintf('#^%s#', preg_replace('#:([\w])#', '([^/]+)', trim($url, '/')));		
+	{
+		$regex = sprintf('#^%s#', preg_replace('#:([\w])#', '([^/]+)', trim($url, '/')));
 		if (!preg_match($regex, $this->url, $matches)) return false;
 
 		array_shift($matches);

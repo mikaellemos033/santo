@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Sect\Providers\Base;
 
@@ -16,7 +16,7 @@ class ConfigProviders implements ServiceProvider
 	public function register(SingleObj $singleton)
 	{
 		$singleton->register('sect.config', function(){
-			return new Raw(BASE . '/Fire');
+			return new Raw(SECT_BASE . '/Fire');
 		});
 	}
 }

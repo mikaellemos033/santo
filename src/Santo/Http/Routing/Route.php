@@ -17,7 +17,7 @@ class Route
 
 	public function __construct($url = '')
 	{
-		$url          = $url ? $url : filter_input(INPUT_SERVER, 'REQUEST_URI');		
+		$url          = $url ? $url : filter_input(INPUT_SERVER, 'REQUEST_URI');
 		$this->parse  = new RoutePath($url);
 	}
 
@@ -27,7 +27,7 @@ class Route
 	}
 
 	public function get($url, $call)
-	{		
+	{
 		$this->get[] = [
 			'url'  => $url,
 			'call' => $call,
@@ -63,11 +63,11 @@ class Route
 		$request = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_DEFAULT);
 		$method  = filter_input(INPUT_POST, '_method', FILTER_DEFAULT);
 
-		$request = !$request ? 'get' : strtolower($request);		
-		
+		$request = !$request ? 'get' : strtolower($request);
+
 		if ($request == 'get') return $this->records($this->get);
 		if ($method == 'put') return $this->records($this->put);
-		if ($method == 'destroy') return $this->records($this->delete);		
+		if ($method == 'destroy') return $this->records($this->delete);
 
 		return $this->records($this->post);
 	}
@@ -75,7 +75,7 @@ class Route
 	private function records(array $params)
 	{
 		$finded = false;
-				
+
 		foreach ($params as $route) {
 			$finded = $this->parse->call($route['url'], $route['call']);
 			if ($finded) return $finded;

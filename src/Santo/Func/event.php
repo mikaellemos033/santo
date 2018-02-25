@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Sect\Dispatch\EventDispatch;
 

@@ -6,11 +6,10 @@ use Sect\Patterns\SingleObj;
 use Sect\Config\Raw;
 
 class KickProvider
-{	
-	public function handle()
+{
+	public function handle(array $configs)
 	{
-		$config = new Raw(BASE . '/Fire');	
-		foreach ($config->fire('Providers') as $obj) $this->boot(new $obj());		
+		foreach ($configs as $obj) $this->boot(new $obj());
 	}
 
 	private function boot(ServiceProvider $provider)
