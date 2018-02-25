@@ -21,7 +21,7 @@ class DB
 
 	private function connect()
 	{			
-		$config = single('config')->raw($fire);
+		$config = single('sect.config')->raw($fire);
 
 		$this->pdo = new PDO(sprintf('%s=:host=%s;dbname=%s', $config['drive'], $config['host'], $config['dbname']), $config['user'], $config['pass']);
 		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

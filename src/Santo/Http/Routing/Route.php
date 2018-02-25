@@ -18,7 +18,7 @@ class Route
 	public function __construct()
 	{
 		$this->errors = single('config')->fire('errors');
-		$this->parse  = new RoutePath('');
+		$this->parse  = new RoutePath(filter_input(INPUT_SERVER, 'REQUEST_URI'));
 	}
 
 	public function get($url, $call)
