@@ -14,6 +14,8 @@ class Boot
 	 */
 	public function run($call, array $params = [])
 	{
+		if (is_callable($call)) return call_user_func_array($call, $params);
+
 		$binds = explode('@', $call);		
 		return call_user_func_array([new $binds[0], $binds[1]], $params);
 	}

@@ -8,9 +8,21 @@ class RouteTest extends PHPUnit_Framework_TestCase
 	{
 		$route = new Route('/home');
 		$route->get('home', function() {
-			return 'sucesso route';
+			return 'success route';
 		});
 
-		$this->assertEquals('sucesso route', $route->run());
+		$this->assertEquals('success route', $route->run());
+	}
+
+	public function testeError404()
+	{
+		$route = new Route();
+		$route->setErrors([
+			'404' => function() {
+				return 'page 404';
+			}
+		]);
+
+		$this->assertEquals('page 404', $route->run());
 	}
 }

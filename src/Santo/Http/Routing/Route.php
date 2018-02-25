@@ -17,9 +17,13 @@ class Route
 
 	public function __construct($url = '')
 	{
-		$url          = $url ? $url : filter_input(INPUT_SERVER, 'REQUEST_URI');
-		$this->errors = single('sect.config')->fire('Errors');
+		$url          = $url ? $url : filter_input(INPUT_SERVER, 'REQUEST_URI');		
 		$this->parse  = new RoutePath($url);
+	}
+
+	public function setErrors(array $errors)
+	{
+		$this->errors = $errors;
 	}
 
 	public function get($url, $call)
@@ -77,7 +81,7 @@ class Route
 			if ($finded) return $finded;
 		}
 
-		if (isset($this->errors['404'])) return $this->boot($this->errors['404']['url'], $this->errors['404']['call']);
+		if (isset($this->errors['404'])) return (new Boot())->run($this->errors['404']);
 		throw new Exception('Request not found', 1);
 	}
 }

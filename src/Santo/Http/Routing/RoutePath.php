@@ -23,8 +23,6 @@ class RoutePath
 	public function call($url, $call)
 	{		
 		if (!$this->match($url)) return false;		
-		if (is_callable($call)) return call_user_func_array($call, $this->matches);
-	
 		return $this->boot->run($call, $this->matches);
 	}
 
