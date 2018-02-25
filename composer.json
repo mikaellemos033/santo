@@ -1,5 +1,5 @@
 {
-    "name": "santo/sect",
+    "name": "mikaellemos/santo",
     "description": "Site Wolpac com 3 idiomas",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "autoload":{
         "psr-4" : {
-            "Sect\\" : "src/Santo"            
+            "Sect\\" : "src/Santo"
         }
     },
     "require": {},
