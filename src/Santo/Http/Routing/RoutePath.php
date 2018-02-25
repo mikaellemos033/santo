@@ -10,7 +10,7 @@ class RoutePath
 
 	public function __construct($url)
 	{
-		$this->url = $url;
+		$this->url  = trim($url, '/');
 		$this->boot = new Boot();
 	}
 
@@ -21,7 +21,7 @@ class RoutePath
 	 * @return boolean|call
 	 */
 	public function call($url, $call)
-	{
+	{		
 		if (!$this->match($url)) return false;		
 		if (is_callable($call)) return call_user_func_array($call, $this->matches);
 	
@@ -36,7 +36,7 @@ class RoutePath
 	 */
 	private function match($url)
 	{		
-		$regex = sprintf('#^%s#', preg_replace('#:([\w])#', '([^/]+)', trim($url, '/')));
+		$regex = sprintf('#^%s#', preg_replace('#:([\w])#', '([^/]+)', trim($url, '/')));		
 		if (!preg_match($regex, $this->url, $matches)) return false;
 
 		array_shift($matches);

@@ -15,14 +15,15 @@ class Route
 	private $put    = [];
 	private $delete = [];
 
-	public function __construct()
+	public function __construct($url = '')
 	{
-		$this->errors = single('config')->fire('errors');
-		$this->parse  = new RoutePath(filter_input(INPUT_SERVER, 'REQUEST_URI'));
+		$url          = $url ? $url : filter_input(INPUT_SERVER, 'REQUEST_URI');
+		$this->errors = single('sect.config')->fire('Errors');
+		$this->parse  = new RoutePath($url);
 	}
 
 	public function get($url, $call)
-	{
+	{		
 		$this->get[] = [
 			'url'  => $url,
 			'call' => $call,
@@ -57,6 +58,8 @@ class Route
 	{
 		$request = filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_DEFAULT);
 		$method  = filter_input(INPUT_POST, '_method', FILTER_DEFAULT);
+
+		$request = !$request ? 'get' : strtolower($request);		
 		
 		if ($request == 'get') return $this->records($this->get);
 		if ($method == 'put') return $this->records($this->put);
@@ -68,10 +71,10 @@ class Route
 	private function records(array $params)
 	{
 		$finded = false;
-		
+				
 		foreach ($params as $route) {
-			$finded = $this->parse($route['url'], $route['call']);
-			if ($finded) break;
+			$finded = $this->parse->call($route['url'], $route['call']);
+			if ($finded) return $finded;
 		}
 
 		if (isset($this->errors['404'])) return $this->boot($this->errors['404']['url'], $this->errors['404']['call']);

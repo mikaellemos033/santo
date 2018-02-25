@@ -11,10 +11,10 @@ class FuncProviders implements ServiceProvider
 	public function boot()
 	{
 		$config = new Raw(BASE . '/Fire');
-		$func   = BASE . '/Func/';
+		$func   = BASE . '/Func';
 		$lists  = $config->fire('Func');
 
-		foreach ($lists as $list) require ($func . $list);
+		foreach ($lists as $list) require (sprintf('%s/%s.php', $func, $list));
 	}
 
 	public function register(SingleObj $singleton)

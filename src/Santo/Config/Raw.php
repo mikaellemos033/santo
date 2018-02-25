@@ -23,7 +23,7 @@ class Raw
 	 */
 	public function config($file)
 	{
-		$path = APPPATH . str_replace('.', '/', $file) . '.php';
+		$path = str_replace('.', '/', $file) . '.php';
 		
 		if (!file_exists($path)) {
 			throw new Exception(sprintf('"%s" not found.', $path), 1);
@@ -42,6 +42,6 @@ class Raw
 	 */
 	public function fire($file)
 	{
-		return $this->config(sprintf('%s/%s', $this->fire, $path));
+		return $this->config(sprintf('%s/%s', $this->fire, $file));
 	}
 }
