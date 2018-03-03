@@ -23,13 +23,13 @@ class Raw
 	 */
 	public function config($file)
 	{
-		$path = str_replace('.', '/', $file) . '.php';
+		$file .= '.php';
 		
-		if (!file_exists($path)) {
-			throw new Exception(sprintf('"%s" not found.', $path), 1);
+		if (!file_exists($file)) {
+			throw new Exception(sprintf('"%s" not found.', $file), 1);
 		}
 
-		return require($path);
+		return require($file);
 	}
 
 	/**
