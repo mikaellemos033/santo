@@ -14,12 +14,12 @@ class DB
 
 	private $pdo;
 
-	public function __construct(string $fire)
+	public function __construct(array $config)
 	{
-		$this->connect($fire);
+		$this->connect($config);
 	}
 
-	private function connect()
+	private function connect(array $config)
 	{			
 		$config = single('sect.config')->raw($fire);
 
