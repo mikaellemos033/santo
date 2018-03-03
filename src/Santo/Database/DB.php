@@ -21,7 +21,7 @@ class DB
 
 	private function connect(array $config)
 	{				
-		$this->pdo = new PDO(sprintf('%s:host=%s;dbname=%s', $config['drive'], $config['host'], $config['dbname']), $config['user'], $config['pass']);
+		$this->pdo = new PDO(sprintf('%s:host=%s;dbname=%s;charset=UTF8', $config['drive'], $config['host'], $config['dbname']), $config['user'], $config['pass']);
 		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
