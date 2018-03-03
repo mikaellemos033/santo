@@ -9,6 +9,8 @@ class Insert extends ORM
 		$fields      = $this->fields($params);
 		$this->query = sprintf('INSERT INTO %s (%s) VALUES (%s)', $table, str_replace(':', '', implode(',', $fields)), implode(',', $fields));
 		$this->binds = $params;
+
+		return $this;
 	}
 
 	public function execute()

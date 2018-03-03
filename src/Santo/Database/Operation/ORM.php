@@ -23,7 +23,7 @@ abstract class ORM
 	public function where(string $clausure, array $binds = [])
 	{
 		$this->query = sprintf('%s where %s', $this->query, $clausure);
-		$this->binds = array_push($this->binds, $binds);
+		$this->binds = array_merge($this->binds, $binds);
 
 		return $this;
 	}
@@ -31,10 +31,10 @@ abstract class ORM
 	public function execute()
 	{
 		$running  = $this->pdo->prepare($this->query);
-		$response = $running->execute($this->binds);
+		$running->execute($this->binds);
 
 		$this->clear();
-		return $response;
+		return $running;
 	}
 
 	protected function parse(array $params)

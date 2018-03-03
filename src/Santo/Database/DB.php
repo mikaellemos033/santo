@@ -3,10 +3,10 @@
 namespace Sect\Database;
 
 use PDO;
-use Operation\Insert;
-use Operation\Select;
-use Operation\Update;
-use Operation\Delete;
+use Sect\Database\Operation\Insert;
+use Sect\Database\Operation\Select;
+use Sect\Database\Operation\Update;
+use Sect\Database\Operation\Delete;
 
 class DB
 {
@@ -20,7 +20,7 @@ class DB
 	}
 
 	private function connect(array $config)
-	{
+	{				
 		$this->pdo = new PDO(sprintf('%s:host=%s;dbname=%s', $config['drive'], $config['host'], $config['dbname']), $config['user'], $config['pass']);
 		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
