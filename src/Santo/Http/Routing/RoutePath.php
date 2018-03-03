@@ -22,7 +22,7 @@ class RoutePath
 	 */
 	public function call($url, $call)
 	{
-		if (!$this->match($url)) return false;
+		if (!$this->match($url) || (empty($url) && !empty($this->url))) return false;
 		return $this->boot->run($call, $this->matches);
 	}
 

@@ -15,7 +15,7 @@ class Route
 	private $put    = [];
 	private $delete = [];
 
-	public function __construct($url = '')
+	public function __construct($url = null)
 	{
 		$url          = $url ? $url : filter_input(INPUT_SERVER, 'REQUEST_URI');
 		$this->parse  = new RoutePath($url);
@@ -77,7 +77,7 @@ class Route
 		$finded = false;
 
 		foreach ($params as $route) {
-			$finded = $this->parse->call($route['url'], $route['call']);
+			$finded = $this->parse->call(trim($route['url'], '/'), $route['call']);
 			if ($finded) return $finded;
 		}
 
