@@ -2,6 +2,8 @@
 
 namespace Sect\Database\Operation;
 
+use PDO;
+
 class Insert extends ORM
 {
 	public function run(string $table, array $params)
@@ -15,16 +17,16 @@ class Insert extends ORM
 
 	public function execute()
 	{
-		$running = parent::execute();
-		return $running->lastInsertId();
+		parent::execute();
+		return $this->pdo->lastInsertId();		
 	}
 
 	private function fields(array $params)
 	{
 		$fields = [];		
-		$keys   = is_array($params[0]) ? $params[0] : $params;
+		$keys   = isset($params[0]) ? $params[0] : $params;
 
-		foreach ($keys as $key) $fields[] = ':' . $key;
+		foreach (array_keys($keys) as $key) $fields[] = ':' . $key;
 		return $fields;
 	}
 }
