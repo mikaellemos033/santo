@@ -44,4 +44,9 @@ class DB
 	{
 		return new Insert($this->pdo);
 	}
+
+	public function getPDO()
+	{
+		return $this->pdo;
+	}
 }

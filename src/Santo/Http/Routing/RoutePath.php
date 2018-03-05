@@ -34,9 +34,7 @@ class RoutePath
 	 */
 	private function match($url)
 	{
-		$regex = sprintf('#%s#', preg_replace('#:([\w])#', '([^/]+)', trim($url, '/')));
-		$regex = str_replace(['/', '-'], ['\/', '\-'], $regex);
-
+		$regex = sprintf('#%s#', preg_replace('#:([\w]*)#', '([^/]+)', trim($url, '/')));		
 		if (!preg_match($regex, $this->url, $matches)) return false;
 
 		array_shift($matches);
