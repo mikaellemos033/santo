@@ -6,7 +6,7 @@ use PDO;
 
 class Select extends ORM
 {
-	public function run(string $table, array $fields = [])
+	public function run($table, array $fields = [])
 	{
 		$fields = empty($fields) ? ['*'] : $fields;
 		$this->query = sprintf('SELECT %s FROM %s', implode(',', $fields), $table);

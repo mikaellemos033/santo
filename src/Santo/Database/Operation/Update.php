@@ -7,7 +7,7 @@ class Update extends ORM
 	private $query;
 	private $binds = [];
 
-	public function run(string $table, array $params)
+	public function run($table, array $params)
 	{
 		$this->query = sprintf('update %s set %s', $table, $this->parse($params));
 		$this->binds = $params;

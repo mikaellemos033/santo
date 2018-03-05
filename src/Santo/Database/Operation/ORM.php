@@ -20,7 +20,7 @@ abstract class ORM
 		return $this->query;
 	}
 
-	public function where(string $clausure, array $binds = [])
+	public function where($clausure, array $binds = [])
 	{
 		$this->query = sprintf('%s where %s', $this->query, $clausure);
 		$this->binds = array_merge($this->binds, $binds);
